@@ -5,11 +5,10 @@ import { deleteNote } from "../services/noteService";
 import toast from "react-hot-toast";
 
 interface NoteListProps {
-  onSelect?: (note: Note) => void;
   notes: Note[];
 }
 
-export default function NoteList({ onSelect, notes }: NoteListProps) {
+export default function NoteList({ notes }: NoteListProps) {
   const queryClient = useQueryClient();
 
   const deleteteNoteMutation = useMutation({

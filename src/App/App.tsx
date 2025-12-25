@@ -5,7 +5,6 @@ import { fetchNotes } from "../services/noteService";
 import SearchBox from "../SearchBox/SearchBox";
 import { useDebouncedCallback } from "use-debounce";
 import NoteList from "../NoteList/NoteList";
-import type { Note } from "../types/note";
 import Modal from "../Modal/Modal";
 import { Toaster } from "react-hot-toast";
 import NoteForm from "../NoteForm/NoteForm";
