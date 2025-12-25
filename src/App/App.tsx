@@ -14,14 +14,13 @@ import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 export default function App() {
-  const [selectedNote, setSelectedNote] = useState<Note | null>(null);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [stateModal, setStateModal] = useState(false);
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["notes", search, page],
-    queryFn: () => fetchNotes(search, page, 8),
+    queryFn: () => fetchNotes(search, page, 12),
     placeholderData: keepPreviousData,
   });
 
@@ -32,8 +31,6 @@ export default function App() {
     setSearch(query);
     setPage(1);
   }, 500);
-
-  const handelSelect = (note: Note) => setSelectedNote(note);
 
   const openModal = () => {
     setStateModal(true);
@@ -70,7 +67,7 @@ export default function App() {
         </header>
 
         {!isError && !isLoading && notes.length > 0 && (
-          <NoteList notes={notes} onSelect={handelSelect} />
+          <NoteList notes={notes} />
         )}
       </div>
     </>
